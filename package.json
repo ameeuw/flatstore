@@ -1,0 +1,15 @@
+{
+  "name": "flatstore",
+  "version": "1.0.0",
+  "description": "A flat file store using json",
+  "main": "index.js",
+  "dependencies": {
+    "path": "^0.12.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Arne Meeuw",
+  "license": "ISC"
+}
