@@ -16,14 +16,14 @@ module.exports = function(opts={}) {
       }
     },
 
-    saveStore: function(filename='store.json') {
+    saveStore: function(filename=file) {
       return new Promise( (resolve, reject) => {
         fs.writeFile(filename, JSON.stringify(store,null,2), function(err) {
           if(err) {
             console.log(err)
             reject({'error': err})
           }
-          console.log("Written store to: store.json")
+          console.log(`Written store to: ${filename}`)
           resolve(store)
         })
       })
