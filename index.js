@@ -8,7 +8,7 @@ class Flatstore {
 
   loadStore () {
     try {
-      this.store = JSON.parse(fs.readFileSync(file).toString())
+      this.store = JSON.parse(fs.readFileSync(this.file).toString())
       return this.store
     } catch(err) {
       console.log("No store found...")
@@ -18,12 +18,12 @@ class Flatstore {
 
   saveStore () {
     return new Promise( (resolve, reject) => {
-      fs.writeFile(this.filename, JSON.stringify(this.store,null,2), function(err) {
+      fs.writeFile(this.file, JSON.stringify(this.store,null,2), function(err) {
         if(err) {
           console.log(err)
           reject({'error': err})
         }
-        console.log(`Written store to: ${this.filename}`)
+        console.log(`Written store to: ${this.file}`)
         resolve(this.store)
       })
     })
