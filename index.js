@@ -17,27 +17,32 @@ class Flatstore {
   }
 
   saveStore () {
+    let that = this
     return new Promise( (resolve, reject) => {
       fs.writeFile(this.file, JSON.stringify(this.store,null,2), function(err) {
         if(err) {
           console.log(err)
           reject({'error': err})
         }
-        console.log(`Written store to: ${this.file}`)
-        resolve(this.store)
+        console.log(`Written store to: ${that.file}`)
+        resolve(that.store)
       })
     })
   }
 
   createStore () {
     console.log("Creating new store...")
-    this.store = template
+    this.store = this.template
     this.saveStore()
     return this.store
   }
 
   get store () {
-    return this.store
+    return this._store
+  }
+
+  set store (value) {
+    this._store = value
   }
 }
 
