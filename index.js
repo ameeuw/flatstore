@@ -8,7 +8,7 @@ class Flatstore {
 
   loadStore () {
     try {
-      this.store = JSON.parse(fs.readFileSync(this.file).toString())
+      this.store = JSON.parse(fs.readFileSync(`${this.file}`, { encoding: 'utf8' }))
       return this.store
     } catch(err) {
       console.log("No store found...")
