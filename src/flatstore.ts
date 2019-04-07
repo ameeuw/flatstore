@@ -32,6 +32,7 @@ export class Flatstore {
   public loadStore():any {
     try {
       this.store = JSON.parse(fs.readFileSync(join(this.directory, this.file), { encoding: 'utf8' }))
+      log.info(`Loaded store from "${join(this.directory, this.file)}".`)
       return this.store
     } catch(err) {
       log.info(`No store found in "${join(this.directory, this.file)}".`)
