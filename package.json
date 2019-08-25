@@ -2,13 +2,21 @@
   "name": "flatstore",
   "version": "1.0.0",
   "description": "A flat file store using json",
-  "main": "index.js",
+  "main": "dist/index.js",
   "dependencies": {
-    "path": "^0.12.7"
+    "@types/fs-extra": "^5.0.5",
+    "fs-extra": "^7.0.1",
+    "path": "^0.12.7",
+    "typescript": "^3.4.2",
+    "typescript-logging": "^0.6.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^6.0.2",
+    "ts-node": "^8.0.3"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -r ts-node/register test/**/*.spec.ts",
+    "install": "tsc"
   },
   "author": "Arne Meeuw",
   "license": "ISC"
